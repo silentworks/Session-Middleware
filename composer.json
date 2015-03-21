@@ -1,5 +1,5 @@
 {
-  "name": "slimphp/session",
+  "name": "slim/session",
   "description": "SlimPHP Session Middleware",
   "license": "MIT",
   "authors": [
