@@ -9,7 +9,7 @@ use Slim\Interfaces\SessionInterface;
 class SessionMiddleware
 {
     /**
-     * @var \Slim\Session\SessionInterface
+     * @var \Slim\Session\SessionStorageInterface
      */
     protected $session;
 
@@ -22,7 +22,10 @@ class SessionMiddleware
     {
         $this->session->start();
         $response = $next($request, $response);
-        $this->session->save();
+
+        if ($this->session && $this->session->isStarted()) {
+            $this->session->save();
+        }        
 
         return $response;
     }
